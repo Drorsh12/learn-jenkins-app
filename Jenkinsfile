@@ -25,5 +25,13 @@ pipeline {
                 
             }
         }
+        stage ('Test') {
+            steps {
+                sh '''
+                    ${ll}
+                    npm test
+                '''
+            }
+        }
     }
 }
