@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage ("without docker"){
+            steps{
+                sh '''
+                    echo "hello world"
+                    touch out.txt
+                    ls
+                '''
+            }
+        }
+        stage ("with docker"){
+            agent {
+                docker {
+                    image 'node:20.20.1-alpine'
+                }
+            }
+            steps{
+                echo "with docker"
+                sh '''
+                    ls
+                    npm --version
+                '''
+            }
+        }
+        stage ("check ls")
+        {
+            steps{
+                sh "ls"
+            }
+        }
+    }
+}
