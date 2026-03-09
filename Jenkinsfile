@@ -1,34 +1,28 @@
 pipeline {
     agent any
-    
+
+    environment {
+        ll = 'ls -la'
+    }
+
     stages {
-        stage ("without docker"){
-            steps{
-                sh '''
-                    echo "hello world"
-                    touch out.txt
-                    ls
-                '''
-            }
-        }
-        stage ("with docker"){
-            agent {
+        stage('Build'){
+            agent{
                 docker {
-                    image 'node:20.20.1-alpine'
+                    image 'node:18-alpine'
+                    reuseNode true
                 }
             }
-            steps{
-                echo "with docker"
+            steps {
                 sh '''
-                    ls
+                    ${ll}
+                    node --version
                     npm --version
+                    npm ci
+                    npm run build
+                    ${ll}
                 '''
-            }
-        }
-        stage ("check ls")
-        {
-            steps{
-                echo "check ls"
+                
             }
         }
     }
