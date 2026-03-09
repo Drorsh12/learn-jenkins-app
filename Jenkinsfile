@@ -28,7 +28,7 @@ pipeline {
         stage ("check ls")
         {
             steps{
-                sh "ls"
+                echo "check ls"
             }
         }
     }
