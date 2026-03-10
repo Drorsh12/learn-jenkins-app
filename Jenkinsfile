@@ -32,6 +32,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    ls -l
                     npm run file_check
                     npm test
                     
