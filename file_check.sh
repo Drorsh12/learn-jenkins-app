@@ -3,8 +3,8 @@
 FILE=./build/index1.html
 
 if [ -f $FILE ]; then
-       echo true
+       exit 0
 else
-       echo false
+       exit 1
 fi       
 
