@@ -53,6 +53,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    junit 'test-results/junit.xml'
                     npm install serve
                     ./node_modules/.bin/serve -s build &
                     sleep 10
@@ -63,9 +64,4 @@ pipeline {
             }
         }
     }
-    post {
-            always {
-                junit 'test-results/junit.xml'
-            }
-        }
 }
