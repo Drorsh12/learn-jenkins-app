@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FILE=./build/index.html
+FILE=./build/index1.html
 
 if [ -f $FILE ]; then
        echo true
