@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FILE=./build/index1.html
+FILE=./build/index.html
 
 if [ -f $FILE ]; then
        exit 0
