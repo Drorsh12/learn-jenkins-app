@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 FILE=./build/index.html
 
