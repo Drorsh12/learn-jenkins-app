@@ -32,8 +32,9 @@ pipeline {
             }
             steps {
                 sh '''
-                    test -f build/index.html
+                    npm run file_check
                     npm test
+                    
                 '''
             }
         }
