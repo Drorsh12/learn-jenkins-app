@@ -15,12 +15,10 @@ pipeline {
             }
             steps {
                 sh '''
-                    ${ll}
                     node --version
                     npm --version
                     npm ci
                     npm run build
-                    ${ll}
                 '''
                 
             }
@@ -34,7 +32,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    ${ll}
+                    test -f build/index.html
                     npm test
                 '''
             }
