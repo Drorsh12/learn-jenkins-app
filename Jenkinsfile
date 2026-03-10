@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        /*
+        
         stage('Build'){
             agent{
                 docker {
@@ -24,7 +24,7 @@ pipeline {
                 
             }
         }
-        */
+        
 
         stage ('Test') {
             agent{
@@ -64,7 +64,6 @@ pipeline {
     post {
             always {
                 junit 'test-results/junit.xml'
-                cleanWs()
             }
         }
 }
